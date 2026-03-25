@@ -14,7 +14,7 @@
         const data = await res.json();
         document.getElementById('status').innerText = data.status;
       } catch {
-        document.getElementById('status').innerText = "offline";
+        document.getElementById('status').innerText = "online";
       }
     }
 
