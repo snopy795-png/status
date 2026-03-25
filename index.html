@@ -5,13 +5,17 @@
   <title>Status</title>
 </head>
 <body>
-  <h1>Status: <span id="status">Carregando...</span></h1>
+  <h1>Status: <span id="status"></span></h1>
 
   <script>
     async function fetchStatus() {
-      const res = await fetch('status.json');
-      const data = await res.json();
-      document.getElementById('status').innerText = data.status;
+      try {
+        const res = await fetch('status.json');
+        const data = await res.json();
+        document.getElementById('status').innerText = data.status;
+      } catch {
+        document.getElementById('status').innerText = "offline";
+      }
     }
 
     fetchStatus();
